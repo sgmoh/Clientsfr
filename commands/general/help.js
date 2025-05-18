@@ -161,13 +161,18 @@ module.exports = {
       .setFooter({ text: `Use ${prefix}help [command] for more details | Developed by gh_sman` })
       .setTimestamp();
     
-    // Add fields for each command
+    // Create a simplified list of commands with emojis
+    let commandList = '';
+    
     categoryCommands.each(command => {
-      embed.addFields({
-        name: `${prefix}${command.name} ${command.usage || ''}`,
-        value: `${command.description || 'No description provided.'}`,
-        inline: true
-      });
+      // Get appropriate emoji for command
+      const emoji = this.getCommandEmoji(command.name);
+      commandList += `${emoji} **${prefix}${command.name}** - ${command.description || 'No description provided.'}\n`;
+    });
+    
+    embed.addFields({
+      name: 'Commands',
+      value: commandList
     });
     
     // Create back button
@@ -304,6 +309,49 @@ module.exports = {
       case 'leaderboard': return `${EMOJIS.CLIPBOARD}`;
       case 'voice': return `${EMOJIS.MUTE}`;
       default: return `${EMOJIS.HELP}`;
+    }
+  },
+  
+  getCommandEmoji(commandName) {
+    // Map commands to their appropriate emojis
+    switch (commandName.toLowerCase()) {
+      // Admin commands
+      case 'autorole': return `${EMOJIS.LOGS}`;
+      case 'logs': return `${EMOJIS.LOGS}`;
+      case 'reactionroles': return `${EMOJIS.REACTIONROLE}`;
+      case 'ticket': return `${EMOJIS.TICKET}`;
+      case 'welcome': return `${EMOJIS.JOINLEAVE}`;
+      case 'customize': return `${EMOJIS.MULTIPURPOSE}`;
+      case 'emoji': return `${EMOJIS.MULTIPURPOSE}`;
+      case 'bulkemoji': return `${EMOJIS.MULTIPURPOSE}`;
+      
+      // General commands
+      case 'help': return `${EMOJIS.HELP}`;
+      case 'giveaway': return `${EMOJIS.GIVEAWAY}`;
+      case 'invite': return `${EMOJIS.MULTIPURPOSE}`;
+      case 'ping': return `${EMOJIS.MULTIPURPOSE}`;
+      case 'serverinfo': return `${EMOJIS.MULTIPURPOSE}`;
+      case 'setprefix': return `${EMOJIS.PREFIX}`;
+      
+      // Leaderboard commands
+      case 'leaderboard': return `${EMOJIS.CLIPBOARD}`;
+      
+      // Moderation commands
+      case 'ban': return `${EMOJIS.BANNED}`;
+      case 'kick': return `${EMOJIS.KICK}`;
+      case 'purge': return `${EMOJIS.CLEAR}`;
+      case 'clear': return `${EMOJIS.CLEAR}`;
+      case 'warn': return `${EMOJIS.WARN}`;
+      case 'warnings': return `${EMOJIS.WARN}`;
+      case 'timeout': return `${EMOJIS.TIMEOUT}`;
+      case 'mute': return `${EMOJIS.TIMEOUT}`;
+      
+      // Voice commands
+      case 'join': return `${EMOJIS.JOIN}`;
+      case 'leave': return `${EMOJIS.LEAVE}`;
+      
+      // Default
+      default: return `${EMOJIS.MULTIPURPOSE}`;
     }
   }
 };
