@@ -126,7 +126,7 @@ async function endGiveaway(messageId, guildId, client) {
     // Update the giveaway embed
     const endedEmbed = new EmbedBuilder()
       .setColor('#FF5555')
-      .setTitle(`${EMOJIS.TICKET} GIVEAWAY ENDED`)
+      .setTitle(`${EMOJIS.GIVEAWAY} GIVEAWAY ENDED`)
       .setDescription(`**Prize:** ${giveaway.prize}`)
       .addFields(
         { name: 'Winner(s)', value: winnerText },
@@ -370,7 +370,7 @@ module.exports = {
     // Create giveaway embed
     const embed = new EmbedBuilder()
       .setColor('#FF9900')
-      .setTitle(`${EMOJIS.TICKET} GIVEAWAY`)
+      .setTitle(`${EMOJIS.GIVEAWAY} GIVEAWAY`)
       .setDescription(`**Prize:** ${prize}
       
 **Ends:** <t:${Math.floor(endTime / 1000)}:R>

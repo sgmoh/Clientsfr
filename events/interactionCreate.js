@@ -19,6 +19,23 @@ module.exports = {
           await handleTicketClose(interaction, client);
           break;
           
+        case 'delete_ticket':
+          // Handle ticket deletion
+          try {
+            await interaction.reply('This ticket will be deleted in 5 seconds...');
+            setTimeout(() => {
+              interaction.channel.delete(`Ticket deleted by ${interaction.user.tag}`)
+                .catch(error => console.error(`Error deleting ticket: ${error}`));
+            }, 5000);
+          } catch (error) {
+            console.error('Error deleting ticket:', error);
+            await interaction.reply({
+              content: 'There was an error deleting this ticket.',
+              ephemeral: true
+            });
+          }
+          break;
+          
         case 'giveaway_enter':
           // Handle giveaway entry - just add the reaction for now
           try {
@@ -72,10 +89,13 @@ module.exports = {
           await helpCommand.handleCategorySelect(interaction, interaction.values[0], client);
         } catch (error) {
           console.error('Error handling help menu:', error);
-          await interaction.reply({
-            content: 'There was an error while handling the help menu!',
-            ephemeral: true
-          });
+          // Only reply if the interaction hasn't been replied to yet
+          if (!interaction.replied && !interaction.deferred) {
+            await interaction.reply({
+              content: 'There was an error while handling the help menu!',
+              ephemeral: true
+            }).catch(err => console.error('Error sending error response:', err));
+          }
         }
       }
     }

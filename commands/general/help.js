@@ -2,6 +2,7 @@ const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, StringSelectMen
 const { SlashCommandBuilder } = require('discord.js');
 const { getPrefix } = require('../../utils/database');
 const { defaultPrefix } = require('../../config.json');
+const EMOJIS = require('../../utils/emojiConfig');
 
 module.exports = {
   name: 'help',
@@ -46,7 +47,7 @@ module.exports = {
     // Create embed for main help menu
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle('📋 Command Help Menu')
+      .setTitle(`${EMOJIS.HELP} Command Help Menu`)
       .setDescription(`Hello! I'm a multi-purpose bot developed by **gh_sman**.\nMy prefix for this server is \`${prefix}\`\n\nSelect a category below to see available commands:`)
       .setImage('attachment://help_banner.png')
       .setFooter({ text: 'Developed by gh_sman' })
@@ -104,7 +105,7 @@ module.exports = {
     // Create embed for main help menu
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle('📋 Command Help Menu')
+      .setTitle(`${EMOJIS.HELP} Command Help Menu`)
       .setDescription(`Hello! I'm a multi-purpose bot developed by **gh_sman**.\nMy prefix for this server is \`${prefix}\`\n\nSelect a category below to see available commands:`)
       .setImage('attachment://help_banner.png')
       .setFooter({ text: 'Developed by gh_sman' })
@@ -203,7 +204,7 @@ module.exports = {
     // Create embed for command
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle(`Command: ${prefix}${command.name}`)
+      .setTitle(`${EMOJIS.HELP} Command: ${prefix}${command.name}`)
       .setDescription(command.description || 'No description provided.')
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
@@ -250,7 +251,7 @@ module.exports = {
     // Create embed for command
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle(`Command: ${prefix}${command.name}`)
+      .setTitle(`${EMOJIS.HELP} Command: ${prefix}${command.name}`)
       .setDescription(command.description || 'No description provided.')
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
@@ -283,14 +284,14 @@ module.exports = {
   },
   
   getCategoryEmoji(category) {
-    // Return appropriate emoji for category with custom emoji IDs
+    // Return appropriate emoji for category using standard emojis for select menu compatibility
     switch (category.toLowerCase()) {
-      case 'general': return '<:help:1373370856239267940>';
-      case 'moderation': return '<:banned:1373370889235726407>';
-      case 'admin': return '<:Logs:1373372085866598550>';
-      case 'leaderboard': return '<:Multipurpose:1373371000271409416>';
-      case 'voice': return '<:mute:1373372051024248832>';
-      default: return '<:help:1373370856239267940>';
+      case 'general': return '📋';
+      case 'moderation': return '🔨';
+      case 'admin': return '⚙️';
+      case 'leaderboard': return '📊';
+      case 'voice': return '🎤';
+      default: return '❓';
     }
   }
 };

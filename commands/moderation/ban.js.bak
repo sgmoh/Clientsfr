@@ -81,7 +81,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
-        .setTitle(`${EMOJIS.BANNED} User Banned`)
+        .setTitle(`${EMOJIS.BAN} User Banned`)
         .setDescription(`**${user.tag}** has been banned from the server.`)
         .addFields(
           { name: 'Reason', value: reason },
@@ -144,7 +144,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
-        .setTitle(`${EMOJIS.BANNED} User Banned`)
+        .setTitle(`${EMOJIS.BAN} User Banned`)
         .setDescription(`**${user.tag}** has been banned from the server.`)
         .addFields(
           { name: 'Reason', value: reason },
