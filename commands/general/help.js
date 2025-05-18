@@ -46,11 +46,11 @@ module.exports = {
   async sendHelpMenu(message, prefix, client) {
     // Create embed for main help menu
     const embed = new EmbedBuilder()
-      .setColor('#5865F2')
+      .setColor('#00AA00')
       .setTitle(`${EMOJIS.HELP} Command Help Menu`)
       .setDescription(`Hello! I'm a multi-purpose bot developed by **gh_sman**.\nMy prefix for this server is \`${prefix}\`\n\nSelect a category below to see available commands:`)
       .setImage('attachment://help_banner.png')
-      .setFooter({ text: 'Developed by gh_sman' })
+      .setFooter({ text: 'Developed by gh_sman • Use the dropdown menu below to navigate' })
       .setTimestamp();
     
     // Get unique categories
@@ -104,11 +104,11 @@ module.exports = {
   async sendHelpMenuInteraction(interaction, prefix, client) {
     // Create embed for main help menu
     const embed = new EmbedBuilder()
-      .setColor('#5865F2')
+      .setColor('#00AA00')
       .setTitle(`${EMOJIS.HELP} Command Help Menu`)
       .setDescription(`Hello! I'm a multi-purpose bot developed by **gh_sman**.\nMy prefix for this server is \`${prefix}\`\n\nSelect a category below to see available commands:`)
       .setImage('attachment://help_banner.png')
-      .setFooter({ text: 'Developed by gh_sman' })
+      .setFooter({ text: 'Developed by gh_sman • Use the dropdown menu below to navigate' })
       .setTimestamp();
     
     // Get unique categories
@@ -155,7 +155,7 @@ module.exports = {
     
     // Create embed for category
     const embed = new EmbedBuilder()
-      .setColor('#5865F2')
+      .setColor('#00AA00')
       .setTitle(`${this.getCategoryCustomEmoji(categoryName)} ${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Commands`)
       .setDescription(`Here are all the commands in the ${categoryName} category:`)
       .setFooter({ text: `Use ${prefix}help [command] for more details | Developed by gh_sman` })
@@ -206,10 +206,13 @@ module.exports = {
       return message.reply(`Command \`${commandName}\` not found. Use \`${prefix}help\` to see all commands.`);
     }
     
+    // Get emoji for the command
+    const emoji = this.getCommandEmoji(command.name);
+    
     // Create embed for command
     const embed = new EmbedBuilder()
-      .setColor('#5865F2')
-      .setTitle(`${EMOJIS.HELP} Command: ${prefix}${command.name}`)
+      .setColor('#00AA00')
+      .setTitle(`${emoji} Command: ${prefix}${command.name}`)
       .setDescription(command.description || 'No description provided.')
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
@@ -253,10 +256,13 @@ module.exports = {
       });
     }
     
+    // Get emoji for the command
+    const emoji = this.getCommandEmoji(command.name);
+    
     // Create embed for command
     const embed = new EmbedBuilder()
-      .setColor('#5865F2')
-      .setTitle(`${EMOJIS.HELP} Command: ${prefix}${command.name}`)
+      .setColor('#00AA00')
+      .setTitle(`${emoji} Command: ${prefix}${command.name}`)
       .setDescription(command.description || 'No description provided.')
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
