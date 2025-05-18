@@ -52,6 +52,17 @@ loadCommands(client);
 // Register slash commands
 registerSlashCommands(client);
 
+// Initialize commands that need initialization
+const giveawayCommand = client.commands.get('giveaway');
+if (giveawayCommand && giveawayCommand.init) {
+  giveawayCommand.init(client);
+}
+
+const reactionRolesCommand = client.commands.get('reactionroles');
+if (reactionRolesCommand && reactionRolesCommand.init) {
+  reactionRolesCommand.init(client);
+}
+
 // Login to Discord with your client's token
 client.login(token || process.env.DISCORD_TOKEN);
 
