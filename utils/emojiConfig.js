@@ -7,7 +7,7 @@
 const EMOJIS = {
   // Category emojis
   HELP: '<:help:1373370856239267940>',
-  BAN: '<:banned:1373370889235726407>',
+  BANNED: '<:banned:1373370889235726407>',
   KICK: '<:kick:1373370930440569073>',
   CLEAR: '<:clear:1373370955279110245>', // purge
   MULTIPURPOSE: '<:Multipurpose:1373371000271409416>',
