@@ -102,7 +102,7 @@ module.exports = {
     // Create embed
     const embed = new EmbedBuilder()
       .setColor('#00FF00')
-      .setTitle(`${EMOJIS.LOGS} Welcome Message Configured`)
+      .setTitle(`${EMOJIS.JOINLEAVE} Welcome Message Configured`)
       .setDescription('Welcome messages have been set up successfully!')
       .addFields(
         { name: 'Channel', value: channel.toString() },
@@ -130,7 +130,7 @@ module.exports = {
     // Create embed
     const embed = new EmbedBuilder()
       .setColor('#00FF00')
-      .setTitle(`${EMOJIS.LOGS} Welcome Message Configured`)
+      .setTitle(`${EMOJIS.JOINLEAVE} Welcome Message Configured`)
       .setDescription('Welcome messages have been set up successfully!')
       .addFields(
         { name: 'Channel', value: channel.toString() },

@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { addWarning } = require('../../utils/database');
+const EMOJIS = require('../../utils/emojiConfig');
 
 module.exports = {
   name: 'warn',
@@ -71,7 +72,7 @@ module.exports = {
     // Create embed
     const embed = new EmbedBuilder()
       .setColor('#FFFF00')
-      .setTitle('⚠️ User Warned')
+      .setTitle(`${EMOJIS.WARN} User Warned`)
       .setDescription(`**${user.tag}** has been warned.`)
       .addFields(
         { name: 'Reason', value: reason },
@@ -88,7 +89,7 @@ module.exports = {
     try {
       const dmEmbed = new EmbedBuilder()
         .setColor('#FFFF00')
-        .setTitle(`⚠️ Warning from ${message.guild.name}`)
+        .setTitle(`${EMOJIS.WARN} Warning from ${message.guild.name}`)
         .setDescription(`You have received a warning.`)
         .addFields(
           { name: 'Reason', value: reason },
@@ -139,7 +140,7 @@ module.exports = {
     // Create embed
     const embed = new EmbedBuilder()
       .setColor('#FFFF00')
-      .setTitle('⚠️ User Warned')
+      .setTitle(`${EMOJIS.WARN} User Warned`)
       .setDescription(`**${user.tag}** has been warned.`)
       .addFields(
         { name: 'Reason', value: reason },
@@ -156,7 +157,7 @@ module.exports = {
     try {
       const dmEmbed = new EmbedBuilder()
         .setColor('#FFFF00')
-        .setTitle(`⚠️ Warning from ${interaction.guild.name}`)
+        .setTitle(`${EMOJIS.WARN} Warning from ${interaction.guild.name}`)
         .setDescription(`You have received a warning.`)
         .addFields(
           { name: 'Reason', value: reason },

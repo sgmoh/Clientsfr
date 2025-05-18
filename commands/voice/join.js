@@ -64,7 +64,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#5865F2')
-        .setTitle(`${EMOJIS.MUTE} Voice Connection`)
+        .setTitle(`${EMOJIS.JOIN} Voice Connection`)
         .setDescription(`Successfully joined **${voiceChannel.name}** and will stay connected 24/7!`)
         .setFooter({ text: 'Developed by gh_sman' })
         .setTimestamp();
@@ -131,7 +131,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#5865F2')
-        .setTitle(`${EMOJIS.MUTE} Voice Connection`)
+        .setTitle(`${EMOJIS.JOIN} Voice Connection`)
         .setDescription(`Successfully joined **${voiceChannel.name}** and will stay connected 24/7!`)
         .setFooter({ text: 'Developed by gh_sman' })
         .setTimestamp();

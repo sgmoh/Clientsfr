@@ -197,7 +197,7 @@ module.exports = {
     // Create the reaction role embed
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle(`${EMOJIS.MULTIPURPOSE} ${title}`)
+      .setTitle(`${EMOJIS.REACTIONROLE} ${title}`)
       .setDescription(description)
       .setFooter({ text: 'Click the buttons below to get or remove roles' })
       .setTimestamp();
@@ -440,7 +440,7 @@ module.exports = {
     // Create embed
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle(`${EMOJIS.MULTIPURPOSE} Reaction Role Messages`)
+      .setTitle(`${EMOJIS.REACTIONROLE} Reaction Role Messages`)
       .setDescription(`Found ${guildReactionRoles.length} reaction role messages in this server.`)
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
