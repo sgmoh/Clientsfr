@@ -48,6 +48,7 @@ module.exports = {
       .setColor('#5865F2')
       .setTitle('📋 Command Help Menu')
       .setDescription(`Hello! I'm a multi-purpose bot developed by **gh_sman**.\nMy prefix for this server is \`${prefix}\`\n\nSelect a category below to see available commands:`)
+      .setImage('attachment://help_banner.png')
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
     
@@ -71,8 +72,12 @@ module.exports = {
           )
       );
     
-    // Send message
-    const sentMessage = await message.reply({ embeds: [embed], components: [row] });
+    // Send message with attached image
+    const sentMessage = await message.reply({ 
+      embeds: [embed], 
+      components: [row],
+      files: [{ attachment: './attached_assets/help_banner.png', name: 'help_banner.png' }]
+    });
     
     // Create collector for interactions
     const collector = sentMessage.createMessageComponentCollector({ 
@@ -101,6 +106,7 @@ module.exports = {
       .setColor('#5865F2')
       .setTitle('📋 Command Help Menu')
       .setDescription(`Hello! I'm a multi-purpose bot developed by **gh_sman**.\nMy prefix for this server is \`${prefix}\`\n\nSelect a category below to see available commands:`)
+      .setImage('attachment://help_banner.png')
       .setFooter({ text: 'Developed by gh_sman' })
       .setTimestamp();
     
@@ -124,8 +130,12 @@ module.exports = {
           )
       );
     
-    // Send message
-    await interaction.reply({ embeds: [embed], components: [row] });
+    // Send message with attached image
+    await interaction.reply({ 
+      embeds: [embed], 
+      components: [row],
+      files: [{ attachment: './attached_assets/help_banner.png', name: 'help_banner.png' }]
+    });
   },
   
   async handleCategorySelect(interaction, categoryName, client) {
