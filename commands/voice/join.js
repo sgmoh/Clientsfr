@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, NoSubscriberBehavior, AudioPlayerStatus } = require('@discordjs/voice');
 const { saveSetting } = require('../../utils/database');
+const EMOJIS = require('../../utils/emojiConfig');
 
 module.exports = {
   name: 'join',
@@ -63,7 +64,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#5865F2')
-        .setTitle('🔊 Voice Connection')
+        .setTitle(`${EMOJIS.MUTE} Voice Connection`)
         .setDescription(`Successfully joined **${voiceChannel.name}** and will stay connected 24/7!`)
         .setFooter({ text: 'Developed by gh_sman' })
         .setTimestamp();
@@ -130,7 +131,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#5865F2')
-        .setTitle('🔊 Voice Connection')
+        .setTitle(`${EMOJIS.MUTE} Voice Connection`)
         .setDescription(`Successfully joined **${voiceChannel.name}** and will stay connected 24/7!`)
         .setFooter({ text: 'Developed by gh_sman' })
         .setTimestamp();
