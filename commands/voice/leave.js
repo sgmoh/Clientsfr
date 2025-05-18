@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { saveSetting } = require('../../utils/database');
+const EMOJIS = require('../../utils/emojiConfig');
 
 module.exports = {
   name: 'leave',
@@ -38,7 +39,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#5865F2')
-        .setTitle('🔊 Voice Disconnection')
+        .setTitle(`${EMOJIS.MUTE} Voice Disconnection`)
         .setDescription(`Successfully left **${channelName}**!`)
         .setFooter({ text: 'Developed by gh_sman' })
         .setTimestamp();
@@ -78,7 +79,7 @@ module.exports = {
       // Create embed
       const embed = new EmbedBuilder()
         .setColor('#5865F2')
-        .setTitle('🔊 Voice Disconnection')
+        .setTitle(`${EMOJIS.MUTE} Voice Disconnection`)
         .setDescription(`Successfully left **${channelName}**!`)
         .setFooter({ text: 'Developed by gh_sman' })
         .setTimestamp();
