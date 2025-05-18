@@ -156,7 +156,7 @@ module.exports = {
     // Create embed for category
     const embed = new EmbedBuilder()
       .setColor('#5865F2')
-      .setTitle(`${this.getCategoryEmoji(categoryName)} ${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Commands`)
+      .setTitle(`${this.getCategoryCustomEmoji(categoryName)} ${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Commands`)
       .setDescription(`Here are all the commands in the ${categoryName} category:`)
       .setFooter({ text: `Use ${prefix}help [command] for more details | Developed by gh_sman` })
       .setTimestamp();
@@ -292,6 +292,18 @@ module.exports = {
       case 'leaderboard': return '📊';
       case 'voice': return '🎤';
       default: return '❓';
+    }
+  },
+  
+  getCategoryCustomEmoji(category) {
+    // Return appropriate custom emoji for category display
+    switch (category.toLowerCase()) {
+      case 'general': return `${EMOJIS.HELP}`;
+      case 'moderation': return `${EMOJIS.BANNED}`;
+      case 'admin': return `${EMOJIS.LOGS}`;
+      case 'leaderboard': return `${EMOJIS.CLIPBOARD}`;
+      case 'voice': return `${EMOJIS.MUTE}`;
+      default: return `${EMOJIS.HELP}`;
     }
   }
 };
